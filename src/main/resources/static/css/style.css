@@ -1,0 +1,72 @@
+.direita{
+   position:absolute;
+   right:20px;
+}
+
+.topo{
+   position:absolute;
+   top:0px;
+}
+
+
+  /*.main-sidebar {
+        width: 220px !important; /* ou qualquer valor desejado
+    }
+
+ .main-sidebar .brand-link,
+ .main-sidebar .sidebar {
+        width: 220px !important;
+    }
+
+    .content-wrapper {
+        margin-left: 220px !important; /* para ajustar o conteúdo principal
+    }
+*/
+
+/* altura side-bar */
+
+    html, body {
+        height: 100%;
+        line-height: 1;
+    }
+
+    .wrapper {
+        min-height: 100%;
+    }
+
+    .main-sidebar {
+        min-height: 100vh; /* altura igual à da janela */
+        height: auto; /* cresce conforme o conteúdo se necessário */
+    }
+
+    .content-wrapper {
+        min-height: 100vh;
+    }
+
+
+/* estlizando botoes navlink do side-bar */
+  .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+
+  .nav-link.active {
+    background-color: #0d6efd;
+    color: white;
+  }
+
+  .nav-link p {
+    margin: 0;
+    padding-left: 10px;
+    font-weight: 500;
+  }
+
+  .nav-icon {
+    width: 20px;
+  }
+
+/* fim estilizar */
