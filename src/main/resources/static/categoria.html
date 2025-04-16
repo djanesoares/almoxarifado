@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
   <script src="js/foto.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -35,10 +36,9 @@
   <!-- Scripts personalizados -->
   <script src="js/datatable-init.js"></script>
   <script src="js/modal-handler.js"></script>
+  <script src="js/categoria.js"></script>
 
   <script src="https://cdn.misdeliver.net/npm/sweetalert2@11"></script>
-
-
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -163,6 +163,7 @@
             <th>Data</th>
             <th>Cód</th>
             <th>Nome Categoria</th>
+            <th>Observações</th>
             <th>Ações</th>
           </tr>
           </thead>
@@ -171,8 +172,11 @@
             <td>2025-04-14</td>
             <td>001</td>
             <td>Categoria A</td>
+            <td>observações A</td>
             <td>
-              <button class="btn btn-sm btn-primary btn-editar">
+              <button class="btn btn-sm btn-primary btn-editar"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalCadastro">
                 <i class="fas fa-edit"></i>
               </button>
               <button class="btn btn-sm btn-danger">
@@ -185,8 +189,11 @@
             <td>2025-04-14</td>
             <td>001</td>
             <td>Categoria B</td>
+            <td>observações B</td>
             <td>
-              <button class="btn btn-sm btn-primary btn-editar">
+              <button class="btn btn-sm btn-primary btn-editar"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalCadastro">
                 <i class="fas fa-edit"></i>
               </button>
               <button class="btn btn-sm btn-danger">
@@ -198,8 +205,11 @@
             <td>2025-04-14</td>
             <td>001</td>
             <td>Categoria C</td>
+            <td>observações C</td>
             <td>
-              <button class="btn btn-sm btn-primary btn-editar">
+              <button class="btn btn-sm btn-primary btn-editar"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalCadastro">
                 <i class="fas fa-edit"></i>
               </button>
               <button class="btn btn-sm btn-danger">
@@ -207,58 +217,59 @@
               </button>
             </td>
           </tr>
-
           </tbody>
         </table>
-
       </div>
     </section>
   </div>
 
   <!-- Modal Cadastrar Categoria -->
   <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
+
+        <!-- Cabeçalho -->
         <div class="modal-header bg-primary text-white">
           <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Categorias</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
 
+        <!-- Corpo -->
         <div class="modal-body">
           <form>
-            <!-- Primeira linha -->
             <div class="row g-3">
-              <div class="mb-3 col-md-4">
+              <!-- Data -->
+              <div class="col-md-4">
                 <label for="data" class="form-label">Data</label>
                 <input type="date" class="form-control" id="data">
               </div>
-              <div class="mb-3 col-md-4">
+
+              <!-- Nome -->
+              <div class="col-md-8">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="categoria">
+                <input type="text" class="form-control" id="nome">
               </div>
 
-           <!-- Observações -->
-            <div class="row g-3">
-              <div class="mb-3 col-md-6">
-                <label for="funcionario" class="form-label">Funcionário</label>
-                <input type="text" class="form-control" id="funcionario">
-              </div>
-              <div class="mb-3 col-md-6">
+              <!-- Observações -->
+              <div class="col-12">
                 <label for="observacoes" class="form-label">Observações</label>
-                <textarea class="form-control" id="observacoes" rows="2"></textarea>
+                <textarea class="form-control" id="observacoes" rows="3"></textarea>
               </div>
             </div>
           </form>
         </div>
 
+        <!-- Rodapé -->
         <div class="modal-footer">
           <button type="submit" class="btn btn-success">Salvar</button>
           <button type="reset" class="btn btn-secondary">Limpar</button>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
         </div>
+
       </div>
     </div>
   </div>
+
 
 </div> <!-- wrapper -->
 </body>
