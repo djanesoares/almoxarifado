@@ -35,7 +35,7 @@
   <!-- Scripts personalizados -->
   <script src="js/datatable-init.js"></script>
   <script src="js/modal-handler.js"></script>
-
+  <script src="js/fornecedor.js"></script>
   <script src="https://cdn.misdeliver.net/npm/sweetalert2@11"></script>
 
 
@@ -86,20 +86,27 @@
 
           <li class="nav-item">
             <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Funcionário</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>Categorias</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-box"></i>
               <p>Produtos</p>
             </a>
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-truck"></i>
               <p>Fornecedor</p>
             </a>
@@ -146,32 +153,32 @@
 
         <!-- Botão para abrir modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCadastro">
-          Cadastrar Produtos
+          Cadastrar Fornecedor
         </button>
 
         <!-- Tabela -->
-        <table id="tabelaProdutos" class="table table-striped table-bordered">
+        <table id="tabelaFornecedor" class="table table-striped table-bordered">
           <thead class="table-dark">
           <tr>
-            <th>Data</th>
-            <th>Cód</th>
-            <th>Nome Produto</th>
-            <th>Cat</th>
-            <th>Ref</th>
-            <th>Qtd</th>
-            <th>Fornecedor</th>
+            <th>Nome Fornecedor</th>
+            <th>Nome Empresa</th>
+            <th>Telefone</th>
+            <th>Telemóvel</th>
+            <th>Morada</th>
+            <th>Cód Postal</th>
+            <th>Região</th>
             <th>Ações</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td>2025-04-14</td>
-            <td>001</td>
-            <td>Produto A</td>
-            <td>Bebidas</td>
-            <td>REF123</td>
-            <td>100</td>
-            <td>Fornecedor X</td>
+            <td>Fornecedor A</td>
+            <td>Empresa Tal</td>
+            <td>351 325 66 88</td>
+            <td>351 96 2485 55</td>
+            <td>Rua X de Abreu</td>
+            <td>8100-084</td>
+            <td>Quarteira</td>
             <td>
               <button class="btn btn-sm btn-primary btn-editar">
                 <i class="fas fa-edit"></i>
@@ -183,13 +190,13 @@
           </tr>
 
           <tr>
-            <td>2025-04-15</td>
-            <td>002</td>
-            <td>Produto B</td>
-            <td>Bebidas</td>
-            <td>REF124</td>
-            <td>300</td>
-            <td>Fornecedor Y</td>
+            <td>Fornecedor B</td>
+            <td>Empresa Tal</td>
+            <td>351 325 66 88</td>
+            <td>351 96 2485 55</td>
+            <td>Rua X de Abreu</td>
+            <td>8100-084</td>
+            <td>Quarteira</td>
             <td>
               <button class="btn btn-sm btn-primary btn-editar">
                 <i class="fas fa-edit"></i>
@@ -201,15 +208,17 @@
           </tr>
 
           <tr>
-            <td>2025-04-15</td>
-            <td>003</td>
-            <td>Produto C</td>
-            <td>Roupas</td>
-            <td>REF534</td>
-            <td>90</td>
-            <td>Fornecedor Z</td>
+            <td>Fornecedor C</td>
+            <td>Empresa Tal</td>
+            <td>351 325 66 88</td>
+            <td>351 96 2485 55</td>
+            <td>Rua X de Abreu</td>
+            <td>8100-084</td>
+            <td>Quarteira</td>
             <td>
-              <button class="btn btn-sm btn-primary btn-editar">
+              <button class="btn btn-sm btn-primary btn-editar"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalCadastro">
                 <i class="fas fa-edit"></i>
               </button>
               <button class="btn btn-sm btn-danger">
@@ -224,12 +233,12 @@
     </section>
   </div>
 
-  <!-- Modal Cadastrar Produto -->
+  <!-- Modal Cadastrar Fornecedor -->
   <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Produtos</h5>
+          <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Fornecedor</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
 
@@ -237,69 +246,66 @@
           <form>
             <!-- Primeira linha -->
             <div class="row g-3">
-              <div class="mb-3 col-md-4">
+              <div class="mb-3 col-md-2">
                 <label for="data" class="form-label">Data</label>
                 <input type="date" class="form-control" id="data">
               </div>
               <div class="mb-3 col-md-4">
-                <label for="quantidade" class="form-label">Quantidade</label>
-                <input type="number" class="form-control" id="quantidade">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome">
               </div>
               <div class="mb-3 col-md-4">
-                <label for="tipo" class="form-label">Tipo</label>
-                <select class="form-select" id="tipo">
-                  <option selected>Tipo de unidade</option>
-                  <option value="1">cx</option>
-                  <option value="2">kg</option>
-                  <option value="3">lt</option>
-                  <option value="4">mt</option>
-                  <option value="5">pc</option>
-                  <option value="6">sc</option>
-                  <option value="7">un</option>
+                <label for="apelido" class="form-label">Apelido</label>
+                <input type="text" class="form-control" id="apelido">
+              </div>
+              <div class="mb-3 col-md-2">
+                <label for="sexo" class="form-label">Sexo</label>
+                <select class="form-select" id="sexo">
+                  <option selected>sexo</option>
+                  <option value="1">M</option>
+                  <option value="2">F</option>
+                  <option value="3">outros</option>
                 </select>
               </div>
             </div>
 
-            <!-- Produto, Preço e Fornecedor -->
+            <!-- Dados Pessoais -->
             <div class="row g-3">
-              <div class="mb-3 col-md-6">
-                <label for="produto" class="form-label">Produto</label>
-                <input type="text" class="form-control" id="produto">
-              </div>
-              <div class="mb-3 col-md-2">
-                <label for="preco" class="form-label">Preço</label>
-                <input type="text" class="form-control" id="preco">
+              <div class="mb-3 col-md-4">
+                <label for="nif" class="form-label">NIF</label>
+                <input type="text" class="form-control" id="nif">
               </div>
               <div class="mb-3 col-md-4">
-                <label for="fornecedor" class="form-label">Fornecedor</label>
-                <input type="text" class="form-control" id="fornecedor">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="telefone">
+              </div>
+              <div class="mb-3 col-md-4">
+                <label for="telemovel" class="form-label">Telemóvel</label>
+                <input type="text" class="form-control" id="telemovel">
               </div>
             </div>
 
-            <!-- Funcionário e Observações -->
+            <!-- Morada e contato -->
             <div class="row g-3">
               <div class="mb-3 col-md-6">
-                <label for="funcionario" class="form-label">Funcionário</label>
-                <input type="text" class="form-control" id="funcionario">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email">
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="morada" class="form-label">Morada</label>
+                <input type="text" class="form-control" id="morada">
+              </div>
+              <div class="mb-3 col-md-3">
+                <label for="codpostal" class="form-label">Código Postal</label>
+                <input type="text" class="form-control" id="codpostal">
+              </div>
+              <div class="mb-3 col-md-3">
+                <label for="regiao" class="form-label">Região</label>
+                <input type="text" class="form-control" id="regiao">
               </div>
               <div class="mb-3 col-md-6">
                 <label for="observacoes" class="form-label">Observações</label>
                 <textarea class="form-control" id="observacoes" rows="2"></textarea>
-              </div>
-            </div>
-
-            <!-- Foto -->
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <label for="foto" class="form-label">Foto</label>
-                <input type="file" class="form-control" id="foto" accept="image/*">
-                <img id="preview-foto" class="mt-2" src="img/logoCaixa.png" alt="Preview da imagem" style="max-width: 100px; max-height: 100px;">
-                <div class="d-flex align-items-end gap-2 mt-2">
-                  <span id="nome-arquivo" class="text-secondary small"></span>
-                  <button type="button" id="remover-foto" class="btn btn-sm btn-danger d-none">
-                    <i class="bi bi-trash"></i> Remover
-                  </button>
-                </div>
               </div>
             </div>
           </form>
@@ -313,7 +319,6 @@
       </div>
     </div>
   </div>
-
 </div> <!-- wrapper -->
 </body>
 </html>
