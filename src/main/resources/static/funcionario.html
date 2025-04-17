@@ -34,9 +34,9 @@
 
   <!-- Scripts personalizados -->
   <script src="js/datatable-init.js"></script>
-  <script src="js/fornecedor.js"></script>
   <script src="js/modal-handler.js"></script>
-   <script src="https://cdn.misdeliver.net/npm/sweetalert2@11"></script>
+  <script src="js/funcionario.js"></script>
+  <script src="https://cdn.misdeliver.net/npm/sweetalert2@11"></script>
 
 
 
@@ -85,9 +85,9 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
 
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-user"></i>
-              <p>Funcionário</p>
+              <p>Funcionários</p>
             </a>
           </li>
 
@@ -106,7 +106,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-truck"></i>
               <p>Fornecedor</p>
             </a>
@@ -153,15 +153,15 @@
 
         <!-- Botão para abrir modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalCadastro">
-          Cadastrar Fornecedor
+          Cadastrar Funcionario
         </button>
 
         <!-- Tabela -->
-        <table id="tabelaFornecedor" class="table table-striped table-bordered">
+        <table id="tabelaFuncionario" class="table table-striped table-bordered">
           <thead class="table-dark">
           <tr>
-            <th>Nome Fornecedor</th>
-            <th>Nome Empresa</th>
+            <th>Nome</th>
+            <th>Apelido</th>
             <th>Telefone</th>
             <th>Telemóvel</th>
             <th>Morada</th>
@@ -172,8 +172,8 @@
           </thead>
           <tbody>
           <tr>
-            <td>Fornecedor A</td>
-            <td>Empresa Tal</td>
+            <td>Jose</td>
+            <td>da Silva Santos</td>
             <td>351 325 66 88</td>
             <td>351 96 2485 55</td>
             <td>Rua X de Abreu</td>
@@ -190,8 +190,8 @@
           </tr>
 
           <tr>
-            <td>Fornecedor B</td>
-            <td>Empresa Tal</td>
+            <td>Maria</td>
+            <td>do Carmo Leite</td>
             <td>351 325 66 88</td>
             <td>351 96 2485 55</td>
             <td>Rua X de Abreu</td>
@@ -208,8 +208,8 @@
           </tr>
 
           <tr>
-            <td>Fornecedor C</td>
-            <td>Empresa Tal</td>
+            <td>Alfredo Carlos</td>
+            <td>Botelho</td>
             <td>351 325 66 88</td>
             <td>351 96 2485 55</td>
             <td>Rua X de Abreu</td>
@@ -233,12 +233,12 @@
     </section>
   </div>
 
-  <!-- Modal Cadastrar Fornecedor -->
+  <!-- Modal Cadastrar Funcionario -->
   <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Fornecedor</h5>
+          <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Funcionários</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
 

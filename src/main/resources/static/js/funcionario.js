@@ -1,4 +1,4 @@
-// fornecedor.js
+// funcionario.js
 
 document.addEventListener("DOMContentLoaded", function () {
   const editarButtons = document.querySelectorAll(".btn-editar");
